@@ -1,4 +1,4 @@
-import ActionType from './constRe';
+import ActionType from './actionType';
 
 export default function Reserved(rocket) {
   return {
