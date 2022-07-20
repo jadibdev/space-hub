@@ -1,0 +1,38 @@
+.rocket {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    justify-content: flex-start;
+    gap: 1.25rem;
+}
+
+.img {
+    height: 200px;
+    width: 200px;
+}
+
+.all-roket {
+    display: flex;
+    flex-direction: column;
+    gap: .625rem;
+    padding: .9375rem;
+}
+
+.btnfirst {
+    color: blue;
+}
+
+.btnsecond {
+    color: red;
+}
+
+.pharagraph {
+
+}
+
+.reservedText {
+  background-color: rgb(7, 104, 164);
+  color: white;
+}
+
+
