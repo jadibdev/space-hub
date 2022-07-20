@@ -1,17 +1,24 @@
 import ActionType from './actionType';
 
-const inState = {
-  rockets: [],
-};
 // eslint-disable-next-line no-unused-vars
-export default function rocketReducer(state = inState, { type, payload }) {
+export default function rocketReducer(state = [], { type, payload }) {
   switch (type) {
-    case ActionType.FETCHDATA:
-      return { ...state, rockets: payload };
+    case ActionType.ROCKETLOADED:
+      return payload;
     case ActionType.RESERVED:
-      return state;
+      return state.map((rocket) => {
+        if (rocket.id !== parseInt(payload, 10)) {
+          return rocket;
+        }
+        return { ...rocket, reserved: !rocket.reserved };
+      });
     case ActionType.CANCELERESERVED:
-      return state;
+      return state.map((rocket) => {
+        if (rocket.id !== parseInt(payload, 10)) {
+          return rocket;
+        }
+        return { ...rocket, reserved: !rocket.reserved };
+      });
     default:
       return state;
   }
