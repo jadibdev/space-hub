@@ -6,7 +6,6 @@ import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 const initialState = {
   missions: [],
   status: null,
-  member: 'Not a member',
   joinedMissions: [],
   reserved: null,
 };
@@ -24,7 +23,6 @@ const missionsSlice = createSlice({
   reducers: {
     joinMission(state, action) {
       state.joinedMissions.push(action.payload);
-      state.member = 'Active member';
       state.reserved = true;
     },
     cancelMission(state, action) {

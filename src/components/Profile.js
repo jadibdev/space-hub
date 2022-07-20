@@ -12,15 +12,13 @@ const Profile = () => {
   return (
     <div>
       {missions.map((mission) => {
-        const placeholder = 'avoid linters';
-        return (
-          <div key={mission.mission_id}>
-            <p>{mission.mission_name}</p>
-            <p>{joinedMissions}</p>
-            <p>{placeholder}</p>
-          </div>
-        );
+        if (joinedMissions.includes(mission.mission_id)) {
+          return (
+            <div key={mission.mission_id}>{mission.mission_name}</div>
+          );
+        }
       })}
+      { joinedMissions.length === 0 ? 'Currently no missions!' : 'Enjoy your mission!'}
     </div>
   );
 };
