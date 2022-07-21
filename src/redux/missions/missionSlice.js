@@ -3,6 +3,13 @@
 /* eslint-disable no-return-await */
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 
+const initialState = {
+  missions: [],
+  status: null,
+  joinedMissions: [],
+  reserved: null,
+};
+
 export const getMissions = createAsyncThunk(
   'redux/getMissions',
   async () => await fetch('https://api.spacexdata.com/v3/missions').then(
@@ -12,9 +19,16 @@ export const getMissions = createAsyncThunk(
 
 const missionsSlice = createSlice({
   name: 'missions',
-  initialState: {
-    missions: [],
-    status: null,
+  initialState,
+  reducers: {
+    joinMission(state, action) {
+      state.joinedMissions.push(action.payload);
+      state.reserved = true;
+    },
+    cancelMission(state, action) {
+      state.joinedMissions = state.joinedMissions.filter((id) => id !== action.payload);
+      state.reserved = false;
+    },
   },
   extraReducers: {
     // eslint-disable-next-line no-unused-vars
@@ -31,4 +45,5 @@ const missionsSlice = createSlice({
   },
 });
 
+export const { joinMission, cancelMission } = missionsSlice.actions;
 export default missionsSlice.reducer;
