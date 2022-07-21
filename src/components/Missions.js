@@ -41,8 +41,8 @@ const Missions = () => {
       <table>
         <thead>
           <tr>
-            <th>Item name</th>
-            <th>Item description</th>
+            <th>Missions</th>
+            <th>Description</th>
             <th>Status</th>
             <th>-</th>
           </tr>
@@ -52,10 +52,10 @@ const Missions = () => {
             <tr key={mission.mission_id}>
               <td>{mission.mission_name}</td>
               <td>{mission.description}</td>
-              <td>{joinedMissions.includes(mission.mission_id) ? 'Active member' : 'Not a member'}</td>
+              <td className={joinedMissions.includes(mission.mission_id) ? 'member' : 'non-member'}>{joinedMissions.includes(mission.mission_id) ? 'Active member' : 'Not a member'}</td>
               <td>
-                {reserved ? <button id={mission.mission_id} type="button" onClick={() => handleClick(mission.mission_id)}>{joinedMissions.includes(mission.mission_id) ? 'Cancel mission' : 'Join mission'}</button>
-                  : <button id={mission.mission_id} type="button" onClick={() => handleClick(mission.mission_id, event.target.innerText)}>{joinedMissions.includes(mission.mission_id) ? 'Cancel mission' : 'Join mission'}</button>}
+                {reserved ? <button className={joinedMissions.includes(mission.mission_id) ? 'cancel' : 'join'} id={mission.mission_id} type="button" onClick={() => handleClick(mission.mission_id)}>{joinedMissions.includes(mission.mission_id) ? 'Cancel mission' : 'Join mission'}</button>
+                  : <button className={joinedMissions.includes(mission.mission_id) ? 'cancel' : 'join'} id={mission.mission_id} type="button" onClick={() => handleClick(mission.mission_id, event.target.innerText)}>{joinedMissions.includes(mission.mission_id) ? 'Cancel mission' : 'Join mission'}</button>}
               </td>
             </tr>
 
