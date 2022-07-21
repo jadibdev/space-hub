@@ -11,7 +11,7 @@ export default function RocketRender({
   const dispatch = useDispatch();
   const [buttonText, setButtonText] = useState(() => {
     if (reserved === true) {
-      return 'Reserve Rocket';
+      return 'Cancel Reservation';
     }
     return 'Reserve Rocket';
   });
