@@ -1,8 +1,5 @@
 import ActionType from './actionType';
-<<<<<<< HEAD
-=======
 import getRockets from '../api';
->>>>>>> ROCKET
 
 export function Reserved(rocket) {
   return {

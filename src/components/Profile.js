@@ -1,12 +1,8 @@
 /* eslint-disable consistent-return */
 /* eslint-disable array-callback-return */
-import React from 'react';
-import { useSelector } from 'react-redux';
-<<<<<<< HEAD
-=======
 import './Profile.css';
->>>>>>> ROCKET
-
+import { useSelector } from 'react-redux';
+import React from 'react';
 /*
   PROFILE SHOULD SHOW ONLY RESERVED MISSIONS
 */
