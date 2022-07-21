@@ -1,38 +1,35 @@
 .rocket {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    justify-content: flex-start;
-    gap: 1.25rem;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  justify-content: flex-start;
+  gap: 1.25rem;
 }
 
 .img {
-    height: 200px;
-    width: 200px;
+  height: 200px;
+  width: 200px;
 }
 
 .all-roket {
-    display: flex;
-    flex-direction: column;
-    gap: .625rem;
-    padding: .9375rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.625rem;
+  padding: 0.9375rem;
 }
 
 .btnfirst {
-    color: blue;
+  color: blue;
 }
 
 .btnsecond {
-    color: red;
+  color: red;
 }
 
 .pharagraph {
-
 }
 
 .reservedText {
   background-color: rgb(7, 104, 164);
   color: white;
 }
-
-

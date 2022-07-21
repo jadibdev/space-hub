@@ -1,3 +1,4 @@
+/* eslint-disable consistent-return */
 /* eslint-disable react/prop-types */
 /* eslint-disable camelcase */
 import React, { useState } from 'react';
@@ -6,13 +7,31 @@ import { Reserved, cancel } from '../redux/rocket/rocketaction';
 
 export default function RocketRender({
   List: {
-    description, name, image, id,
+    description, name, image, id, reserved,
   },
 }) {
   const dispatch = useDispatch();
-  const [buttonText, setButtonText] = useState('Reserve');
-  const [btn, setBtn] = useState('btnfirst');
-  const [reservedText, setreservedText] = useState('');
+  const [buttonText, setButtonText] = useState(() => {
+    if (reserved === true) {
+      return 'Cancel Reservation';
+    } if (reserved === false) {
+      return 'Reserve';
+    }
+  });
+  const [btn, setBtn] = useState(() => {
+    if (reserved === true) {
+      return 'btnsecond';
+    } if (reserved === false) {
+      return 'btnfirst';
+    }
+  });
+  const [reservedText, setreservedText] = useState(() => {
+    if (reserved === true) {
+      return 'Reserved';
+    } if (reserved === false) {
+      return '';
+    }
+  });
   const handleClick = (e) => {
     if (e.target.textContent === 'Reserve') {
       setButtonText('Cancel Reservation');
@@ -37,7 +56,7 @@ export default function RocketRender({
             {description}
           </p>
         </div>
-        <button className={btn} id={id} type="submit" onClick={handleClick}>{buttonText}</button>
+        <button className={btn} value={reserved} id={id} type="submit" onClick={handleClick}>{buttonText}</button>
       </div>
     </div>
   );
