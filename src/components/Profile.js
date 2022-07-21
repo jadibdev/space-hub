@@ -12,34 +12,45 @@ const Profile = () => {
   const rock = useSelector((state) => state.rockets);
   const reservedRocket = rock.filter((book) => book.reserved === true);
   return (
-    <div>
+    <div className="profile-container">
       <div>
-        {missions.map((mission) => {
-          if (joinedMissions.includes(mission.mission_id)) {
-            return (
-              <div key={mission.mission_id}>{mission.mission_name}</div>
-            );
-          }
-        })}
-        { joinedMissions.length === 0 ? 'Currently no missions!' : 'Enjoy your mission!'}
+        <table>
+          <thead><tr><th>My Missions</th></tr></thead>
+          <tbody>
+            <tr>
+              <td>
+                {missions.map((mission) => {
+                  if (joinedMissions.includes(mission.mission_id)) {
+                    return (
+                      <div key={mission.mission_id}>
+                        <h3>{mission.mission_name}</h3>
+                        <hr />
+                      </div>
+                    );
+                  }
+                })}
+              </td>
+            </tr>
+          </tbody>
+        </table>
       </div>
       <div>
-        <h1>MY Rockets</h1>
         <table>
-          <thead><tr><th>MY Rockets</th></tr></thead>
+          <thead><tr><th>My Rockets</th></tr></thead>
           <tbody>
             <tr>
               <td>
                 {
-            reservedRocket.map((rocket) => {
-              const { name } = rocket;
-              return (
-                <>
-                  <h3>{name}</h3>
-                </>
-              );
-            })
-              }
+                    reservedRocket.map((rocket) => {
+                      const { name } = rocket;
+                      return (
+                        <>
+                          <h3>{name}</h3>
+                          <hr />
+                        </>
+                      );
+                    })
+                      }
               </td>
             </tr>
           </tbody>
