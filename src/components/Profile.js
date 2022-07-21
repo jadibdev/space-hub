@@ -44,10 +44,10 @@ const Profile = () => {
                     reservedRocket.map((rocket) => {
                       const { name } = rocket;
                       return (
-                        <>
+                        <div key={name}>
                           <h3>{name}</h3>
                           <hr />
-                        </>
+                        </div>
                       );
                     })
                       }
