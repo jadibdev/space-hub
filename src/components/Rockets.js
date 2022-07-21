@@ -1,23 +1,14 @@
-import axios from 'axios';
+/* eslint-disable react/jsx-key */
+/* eslint-disable camelcase */
+import React from 'react';
+import { useSelector } from 'react-redux';
+import './Rockets.css';
+import RocketRender from './rocketRender';
 
 const Rockets = () => {
-  const rocketlist = [
-    { name: 'josi', id: 1 },
-    { name: 'yoni', id: 2 },
-  ];
-  const fetchData = async () => {
-    const res = await axios.get('https://api.spacexdata.com/v3/rockets')
-      .catch((err) => console.log('error', err));
-    console.log(res.data);
-  };
-  fetchData();
+  const rock = useSelector((state) => state.rockets);
   return (
-    <div>
-      {rocketlist.map((list) => (
-        <h1 key={list.id}>{list.name}</h1>
-      ))}
-    </div>
+    rock.map((item) => (<RocketRender key={item.id} List={item} />))
   );
 };
-
 export default Rockets;
