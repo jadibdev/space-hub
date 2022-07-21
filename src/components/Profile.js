@@ -34,9 +34,9 @@ const Profile = () => {
             reservedRocket.map((rocket) => {
               const { name } = rocket;
               return (
-                <>
+                <div key={Math.random() * 10}>
                   <h3>{name}</h3>
-                </>
+                </div>
               );
             })
               }
