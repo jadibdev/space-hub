@@ -1,6 +1,6 @@
-/* eslint-disable react/prop-types */
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
+import { PropTypes } from 'prop-types';
 import { Reserved, cancel } from '../redux/rocket/rocketaction';
 
 export default function RocketRender({
@@ -56,3 +56,17 @@ export default function RocketRender({
     </div>
   );
 }
+
+RocketRender.propTypes = {
+  List: PropTypes.shape({
+    description: PropTypes.string,
+    name: PropTypes.string,
+    id: PropTypes.number,
+    reserved: PropTypes.bool,
+    image: PropTypes.string,
+  }),
+};
+
+RocketRender.defaultProps = {
+  List: 'list',
+};

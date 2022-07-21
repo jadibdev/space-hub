@@ -1,5 +1,3 @@
-/* eslint-disable consistent-return */
-/* eslint-disable array-callback-return */
 import './Profile.css';
 import { useSelector } from 'react-redux';
 import React from 'react';
@@ -11,6 +9,8 @@ const Profile = () => {
   const { missions, joinedMissions } = useSelector((state) => state.missions);
   const rock = useSelector((state) => state.rockets);
   const reservedRocket = rock.filter((book) => book.reserved === true);
+  const reservedMissions = missions.filter((mission) => mission);
+
   return (
     <div className="profile-container">
       <div>
@@ -19,7 +19,7 @@ const Profile = () => {
           <tbody>
             <tr>
               <td>
-                {missions.map((mission) => {
+                {reservedMissions.map((mission) => {
                   if (joinedMissions.includes(mission.mission_id)) {
                     return (
                       <div key={mission.mission_id}>
@@ -28,6 +28,7 @@ const Profile = () => {
                       </div>
                     );
                   }
+                  return true;
                 })}
               </td>
             </tr>

@@ -1,6 +1,3 @@
-/* eslint-disable no-unused-vars */
-/* eslint-disable no-param-reassign */
-/* eslint-disable no-return-await */
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 
 const initialState = {
@@ -12,7 +9,7 @@ const initialState = {
 
 export const getMissions = createAsyncThunk(
   'redux/getMissions',
-  async () => await fetch('https://api.spacexdata.com/v3/missions').then(
+  async () => fetch('https://api.spacexdata.com/v3/missions').then(
     (res) => res.json(),
   ),
 );
@@ -22,25 +19,29 @@ const missionsSlice = createSlice({
   initialState,
   reducers: {
     joinMission(state, action) {
+      const localState = state;
       state.joinedMissions.push(action.payload);
-      state.reserved = true;
+      localState.reserved = true;
     },
     cancelMission(state, action) {
-      state.joinedMissions = state.joinedMissions.filter((id) => id !== action.payload);
-      state.reserved = false;
+      const localState = state;
+      localState.joinedMissions = state.joinedMissions.filter((id) => id !== action.payload);
+      localState.reserved = false;
     },
   },
   extraReducers: {
-    // eslint-disable-next-line no-unused-vars
-    [getMissions.pending]: (state, action) => {
-      state.status = 'loading';
+    [getMissions.pending]: (state) => {
+      const localState = state;
+      localState.status = 'loading';
     },
     [getMissions.fulfilled]: (state, action) => {
-      state.status = 'success';
-      state.missions = action.payload;
+      const localState = state;
+      localState.status = 'success';
+      localState.missions = action.payload;
     },
-    [getMissions.rejected]: (state, action) => {
-      state.status = 'failed';
+    [getMissions.rejected]: (state) => {
+      const localState = state;
+      localState.status = 'failed';
     },
   },
 });
