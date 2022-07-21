@@ -27,9 +27,11 @@ const Profile = () => {
       <div>
         <h1>MY Rockets</h1>
         <table>
-          <tr>
-            <td>
-              {
+          <thead><tr><th>MY Rockets</th></tr></thead>
+          <tbody>
+            <tr>
+              <td>
+                {
             reservedRocket.map((rocket) => {
               const { name } = rocket;
               return (
@@ -38,9 +40,10 @@ const Profile = () => {
                 </>
               );
             })
-            }
-            </td>
-          </tr>
+              }
+              </td>
+            </tr>
+          </tbody>
         </table>
       </div>
     </div>
