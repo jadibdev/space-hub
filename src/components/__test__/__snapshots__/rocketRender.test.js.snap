@@ -12,7 +12,9 @@ exports[`Rocket rendering check 1`] = `
   <div
     className="rocket-dis"
   >
-    <h1>
+    <h1
+      className="rocket-name"
+    >
       Fal
     </h1>
     <div
@@ -55,7 +57,9 @@ exports[`Rocket rendering check 2`] = `
   <div
     className="rocket-dis"
   >
-    <h1>
+    <h1
+      className="rocket-name"
+    >
       Et24
     </h1>
     <div

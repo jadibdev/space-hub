@@ -44,7 +44,7 @@ export default function RocketRender({
     <div data-testid={id} className="rocket" key={id}>
       <img className="img" src={image} alt={name} />
       <div className="rocket-dis">
-        <h1>{name}</h1>
+        <h1 className="rocket-name">{name}</h1>
         <div className="pharagraph">
           <p>
             <span className="reservedText">{reservedText}</span>
