@@ -27,8 +27,7 @@ it('Rocket rendering check', () => {
   const tree = renderer.create(
     <Provider store={store}>
       <RocketRender List={list} />
-    </Provider>
-    ,
+    </Provider>,
   ).toJSON();
   expect(tree).toMatchSnapshot();
 });
