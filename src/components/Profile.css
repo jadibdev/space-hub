@@ -1,0 +1,10 @@
+table {
+  width: 31.25rem;
+  align-items: center;
+}
+
+table,
+tr,
+td {
+  border: 1px solid #000;
+}

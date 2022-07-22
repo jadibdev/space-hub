@@ -1,0 +1,45 @@
+.rocket {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  justify-content: flex-start;
+  gap: 1.25rem;
+}
+
+.img {
+  height: 250px;
+  width: 300px;
+  border-radius: 8px;
+}
+
+.all-roket {
+  display: flex;
+  flex-direction: column;
+  gap: 0.625rem;
+  padding: 2.5rem;
+  width: 70%;
+}
+
+.btnfirst {
+  background-color: rgb(0, 145, 255);
+  color: white;
+  width: 8.125rem;
+}
+
+.btnsecond {
+  color: gray;
+}
+
+.description {
+  padding-left: 6px;
+  font-family: 'Roboto', sans-serif;
+}
+
+.reservedText {
+  background-color: rgb(7, 104, 164);
+  color: white;
+}
+
+.rocket-name {
+  font-family: 'Roboto', sans-serif;
+}
